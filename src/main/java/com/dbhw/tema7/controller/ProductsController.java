@@ -31,4 +31,13 @@ public class ProductsController {
     public List<Products> getAllProductsIncludingUndeleted(){
         return productsServices.getAllProductsIncludingDeleted();
     }
+
+    @PostMapping("products/decrement/{Id}")
+    public void decrementStockByOne(@PathVariable("Id") Integer Id){
+        productsServices.decrementStockByOne(Id);
+    }
+    @PostMapping("products/decrement/{Id}")
+    public void incrementStockByOne(@PathVariable("Id") Integer Id){
+        productsServices.incrementStockByOne(Id);
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.spring5.processor.SpringObjectTagProcessor;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 @RequiredArgsConstructor
@@ -37,5 +38,10 @@ public class ProductsServices {
     public List<Products> getAllProductsIncludingDeleted(){
         return productsRepository.findAll();
     }
-
+    public void incrementStockByOne(Integer Id){
+        productsRepository.incrementStock(Id);
+    }
+    public void decrementStockByOne(Integer Id){
+        productsRepository.decrementStock(Id);
+    }
 }

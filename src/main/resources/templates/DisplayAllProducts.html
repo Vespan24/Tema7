@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div th:each="product: ${getAllProductsIncludingDeleted}">
+<div th:each="product: ${getAllProducts}">
     <p th:text="${product.getId()}"></p>
     <p th:text="${product.getName()}"></p>
     <p th:text="${product.getIdentificationCode()}"></p>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:each="product: ${getAllProductsIncludingDeleted}">
+    <p th:text="${product.getId()}"></p>
+    <p th:text="${product.getName()}"></p>
+    <p th:text="${product.getIdentificationCode()}"></p>
+    <p th:text="${product.getStock()}"></p>
+</div>
+</body>
+</html>
