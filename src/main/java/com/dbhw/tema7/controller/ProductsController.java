@@ -18,7 +18,7 @@ public class ProductsController {
         productsServices.addProduct(name, identificationCode, type, stock);
     }
 
-    @PostMapping("/products/{identificationCode}")
+    @PostMapping("/products/softdelete/{identificationCode}")
     public void softDeleteProduct(@PathVariable("identificationCode") String identificationCode){
         productsServices.softDeleteProduct(identificationCode);
     }
