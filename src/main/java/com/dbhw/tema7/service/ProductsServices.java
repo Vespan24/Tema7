@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.spring5.processor.SpringObjectTagProcessor;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -43,5 +44,13 @@ public class ProductsServices {
     }
     public void decrementStockByOne(Integer Id){
         productsRepository.decrementStock(Id);
+     /*
+        if(productsRepository.getById(Id).getStock() <= 0){
+            softDeleteProduct(productsRepository.getById(Id).getIdentificationCode());
+        }
+     */
+    }
+    public void updateStock(Integer Id, Integer stock){
+        productsRepository.getById(Id).setStock(stock);
     }
 }

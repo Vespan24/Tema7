@@ -13,9 +13,9 @@ public interface ProductsRepository extends JpaRepository<Products, Integer> {
     List<Products> findAll();
 
     @Modifying
-    @Query("UPDATE Products p set p.stock = p.stock +1 WHERE p.Id = Id")
+    @Query("UPDATE Products p set p.stock = p.stock +1 WHERE p.Id = productId")
     void incrementStock(Integer productId);
     @Modifying
     @Query("UPDATE Products p set p.stock = p.stock -1 WHERE p.Id = productId")
-    void decrementStock(Integer Id);
+    void decrementStock(Integer productId);
 }
